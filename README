@@ -1,0 +1,12 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1712
+
+testbase.vim is Test::Base spec syntax hilighting.
+
+ScreenShot: http://f.hatena.ne.jp/images/fotolife/s/secondlife/20061117/20061117163415.png
+  
+: installation
+   This script cp ~/.vim/syntax/testbase.vim
+   and write file detect file ~/.vim/ftdetect/testbase.vim
+      au BufNewFile,BufRead *_test.rb set filetype=ruby | unlet b:current_syntax | syn include @rubyTestBase syntax/testbase.vim | syn region rubyTestBase matchgroup=rubyData start="^__END__$" keepend end="\%$" contains=@rubyTestBase
+      au BufNewFile,BufRead *.t set filetype=perl | unlet b:current_syntax | syn include @perlTestBase syntax/testbase.vim | syn region perlTestBase matchgroup=perlData start="^__\(DATA\|END\)__$" keepend end="\%$" contains=@perlTestBase
+
